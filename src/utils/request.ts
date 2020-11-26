@@ -1,4 +1,5 @@
-import axios, { AxiosRequestConfig } from 'axios'
+const axios = require('axios')
+
 
 type RequestReturnType = {
   status: number
@@ -6,10 +7,10 @@ type RequestReturnType = {
   error?: null | string
 }
 
-const axiosConfig: AxiosRequestConfig = {
+const axiosConfig: any = {
   method: 'get',
   responseType: 'json',
-  validateStatus: status => status < 400 || status === 404
+  validateStatus: (status: number) => status < 400 || status === 404
 }
 
 const request = async (
