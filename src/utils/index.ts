@@ -1,0 +1,1 @@
+export { default as cors } from '@utils/cors'

@@ -1,0 +1,36 @@
+{
+  "name": "ml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "rm -rf build && mkdir build && tsc -w",
+    "check-env": "node -r dotenv/config",
+    "watch-script": "nodemon build/Server.js --exec \"node --require dotenv/config\"",
+    "dev": "npm-run-all -p check-env tsc watch-script"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.8",
+    "@types/express": "^4.17.9",
+    "@types/http-errors": "^1.8.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/register": "^7.12.1",
+    "@types/dotenv": "^8.2.0",
+    "@types/nodemon": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6",
+    "npm-run-all": "^4.1.5"
+  }
+}
