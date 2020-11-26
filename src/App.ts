@@ -3,10 +3,11 @@ import createError from 'http-errors'
 import cookieParser from 'cookie-parser'
 import cors from './utils/cors'
 import router from './router/index'
-
+import producer from './kafka/index'
 
 const app = express()
 const NODE_ENV = process.env.NODE_ENV
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -14,6 +15,9 @@ app.use(cookieParser())
 app.use(router)
 app.use(cors)
 
+app.use((req, res, next) => {
+  next(producer)
+})
 app.use(function (req, res, next) {
   next(createError(404))
 })

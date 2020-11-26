@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build-kafka": "docker-compose up --build",
+    "run-kafka": "docker-compose up -d",
     "tsc": "rm -rf build && mkdir build && tsc -w",
     "check-env": "node -r dotenv/config",
-    "watch-script": "tsc && nodemon build/Server.js --exec \"node --require dotenv/config\"",
+    "watch-script": "npm run tsc && nodemon build/Server.js --exec \"node --require dotenv/config\"",
     "dev": "npm-run-all -p check-env watch-script"
   },
   "author": "",
@@ -20,12 +22,14 @@
     "@types/express": "^4.17.9",
     "@types/http-errors": "^1.8.0",
     "@types/http-terminator": "^2.0.1",
+    "@types/kafka-node": "^3.0.0",
     "axios": "^0.21.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "http-errors": "^1.8.0",
     "http-terminator": "^2.0.3",
+    "kafka-node": "^5.0.0",
     "typescript": "^4.1.2"
   },
   "devDependencies": {
