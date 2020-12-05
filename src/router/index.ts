@@ -12,9 +12,10 @@ router.post(
     const webHookRequest: any = req.body
     const intentName = webHookRequest.intent.displayName
     console.log(intentName, ' ===>')
+    let response
     switch (intentName) {
       case 'OS Choice IOS':
-        return res.json({
+        response = {
           followupEventInput: {
             name: 'ios-event',
             languageCode: 'en-US',
@@ -22,9 +23,10 @@ router.post(
               operatingSystem: 'IOS'
             }
           }
-        })
+        }
+        break
       case 'OS Choice Android':
-        res.json({
+        response = {
           followupEventInput: {
             name: 'android-event',
             languageCode: 'en-US',
@@ -32,12 +34,12 @@ router.post(
               operatingSystem: 'Android'
             }
           }
-        })
-        return
+        }
+        break
       default:
-        return null
+        break
     }
-    return
+    res.json(response)
   }
 )
 
