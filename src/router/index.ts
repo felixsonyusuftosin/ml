@@ -14,21 +14,6 @@ router.post(
 
     let response
     switch (intentName) {
-      case 'Android':
-      case 'IOS':
-        res.json({
-            "fulfillmentMessages": [
-              {
-                "text": {
-                  "text": [
-                    "Next question: do you update your operating system regularly?"
-                  ]
-                }
-              }
-            ]
-          
-        })
-      break
       case 'OS Choice IOS':
         response = {
           followupEventInput: {
