@@ -10,11 +10,24 @@ router.post(
   '/handleAndroidOptionRequest',
   (req: express.Request, res: express.Response) => {
     const webHookRequest: any = req.body
-    console.log( webHookRequest, ' ===>')
     const intentName = webHookRequest.queryResult.intent.displayName
 
     let response
     switch (intentName) {
+      case 'Android':
+      case 'IOS':
+        res.json({
+            "fulfillmentMessages": [
+              {
+                "text": {
+                  "text": [
+                    "Next question: do you update your operating system regularly?"
+                  ]
+                }
+              }
+            ]
+          
+        })
       case 'OS Choice IOS':
         response = {
           followupEventInput: {
