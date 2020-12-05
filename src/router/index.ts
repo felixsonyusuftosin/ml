@@ -28,6 +28,7 @@ router.post(
             ]
           
         })
+      break
       case 'OS Choice IOS':
         response = {
           followupEventInput: {
@@ -38,6 +39,21 @@ router.post(
             }
           }
         }
+        res.json(response)
+        setTimeout(() => {
+          res.json({
+            "fulfillmentMessages": [
+              {
+                "text": {
+                  "text": [
+                    "Next question: do you update your operating system regularly?"
+                  ]
+                }
+              }
+            ]
+          
+        })
+        }, 3000)
         break
       case 'OS Choice Android':
         response = {
