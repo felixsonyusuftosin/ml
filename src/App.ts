@@ -15,9 +15,9 @@ app.use(cookieParser())
 app.use(router)
 app.use(cors)
 
-app.use((req, res, next) => {
-  next(producer)
-})
+// app.use((req, res, next) => {
+//   next(producer)
+// })
 app.use(function (req, res, next) {
   next(createError(404))
 })
