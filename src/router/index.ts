@@ -9,15 +9,13 @@ router.get('/', (req: express.Request, res: express.Response) => {
 router.post('/handleAndroidOptionRequest',(req: express.Request, res: express.Response) => {
   const webHookRequest: any = req.body
   return res.json({
-    "fulfillmentMessages": [
-      {
-        "text": {
-          "text": [
-            "Text response from webhook"
-          ]
-        }
+    "followupEventInput": {
+      "name": "android-event",
+      "languageCode": "en-US",
+      "parameters": {
+        "operatingSystem": "Android"
       }
-    ]
+    }
   })
 })
 
