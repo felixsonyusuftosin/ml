@@ -11,6 +11,7 @@ router.post(
   (req: express.Request, res: express.Response) => {
     const webHookRequest: any = req.body
     const intentName = webHookRequest.intent.displayName
+    console.log(intentName, ' ===>')
     switch (intentName) {
       case 'OS Choice IOS':
         return res.json({
