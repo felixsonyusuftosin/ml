@@ -11,7 +11,7 @@ router.post(
   (req: express.Request, res: express.Response) => {
     const webHookRequest: any = req.body
     console.log( webHookRequest, ' ===>')
-    const intentName = webHookRequest.intent.displayName
+    const intentName = webHookRequest.queryResult.intent.displayName
 
     let response
     switch (intentName) {
