@@ -10,8 +10,9 @@ router.post(
   '/handleAndroidOptionRequest',
   (req: express.Request, res: express.Response) => {
     const webHookRequest: any = req.body
+    console.log( webHookRequest, ' ===>')
     const intentName = webHookRequest.intent.displayName
-    console.log(intentName, ' ===>')
+
     let response
     switch (intentName) {
       case 'OS Choice IOS':
